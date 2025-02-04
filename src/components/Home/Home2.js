@@ -1,14 +1,14 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/avatar.jpg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
+  AiOutlineMail,
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
-
+import { SiLeetcode } from "react-icons/si";
 function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
@@ -19,8 +19,9 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+            I fell in love with programming and have continuously learned and improved along the way. 🤷‍♂️
+            <br /> <br />
+              I enjoy collaborating on projects, solving real-world problems, and continuously enhancing my skills to stay ahead in the ever-evolving tech landscape.
               <br />
               <br />I am fluent in classics like
               <i>
@@ -36,10 +37,10 @@ function Home2() {
                   Blockchain.
                 </b>
               </i>
+              
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
+              Whenever possible, I channel my passion into developing products using <b className="purple">Node.js</b> and
               <i>
                 <b className="purple">
                   {" "}
@@ -53,9 +54,14 @@ function Home2() {
             </p>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
-            </Tilt>
+          <Tilt>
+            <img 
+              src={myImg} 
+              className="img-fluid" 
+              alt="avatar" 
+              style={{ borderRadius: "15%" }} 
+            />
+        </Tilt>
           </Col>
         </Row>
         <Row>
@@ -67,7 +73,7 @@ function Home2() {
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/soumyajit4419"
+                  href="https://github.com/gauravjha0711"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -77,17 +83,17 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/Soumyajit4419"
+                  href="https://leetcode.com/u/gauravjha0711/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
                 >
-                  <AiOutlineTwitter />
+                  <SiLeetcode size={30} color="#FFA116" />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.linkedin.com/in/soumyajit4419/"
+                  href="https://www.linkedin.com/in/gaurav-kumar-729503265/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -97,7 +103,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/soumyajit4419"
+                  href="https://www.instagram.com/gauravjhagk"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
