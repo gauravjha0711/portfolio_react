@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0e7dafe6.css",
+    "main.js": "/static/js/main.febb2477.js",
+    "static/js/787.5c0b2d12.chunk.js": "/static/js/787.5c0b2d12.chunk.js",
+    "static/media/vasudevastore.png": "/static/media/vasudevastore.9dbcfde673223ee2b444.png",
+    "static/media/tourWithLove.png": "/static/media/tourWithLove.ed87beb90d0fd0833a5d.png",
+    "static/media/onlineClothShop.png": "/static/media/onlineClothShop.65b16558ca806cc44ee9.png",
+    "static/media/weatherApp.png": "/static/media/weatherApp.5fd61299dcc012783b2c.png",
+    "static/media/passwordGenerator.png": "/static/media/passwordGenerator.5cd8e5ff8dcc8c7b28bc.png",
+    "static/media/ticTaeToe.png": "/static/media/ticTaeToe.e82869242f2e792bbb10.png",
+    "static/media/gifGeneratorBySearch.png": "/static/media/gifGeneratorBySearch.11f940d326c73072cd7a.png",
+    "static/media/courseOption.png": "/static/media/courseOption.5c377dd10f8e31c2b877.png",
+    "static/media/Gaurav_Kumar_Resume.pdf": "/static/media/Gaurav_Kumar_Resume.551a91bbb98347cf997c.pdf",
+    "static/media/avatar.jpg": "/static/media/avatar.d5f307ead2316265560c.jpg",
+    "static/media/logog.png": "/static/media/logog.1c4882771a56b132f2d1.png",
+    "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
+    "static/media/logok.png": "/static/media/logok.612eed1eed5fd2fdd35b.png",
+    "static/media/homeLogo.jpeg": "/static/media/homeLogo.87971648c6c7ee3aec12.jpeg",
+    "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/pre.svg": "/static/media/pre.4410c5baaa673cc131da.svg",
+    "index.html": "/index.html",
+    "main.0e7dafe6.css.map": "/static/css/main.0e7dafe6.css.map",
+    "main.febb2477.js.map": "/static/js/main.febb2477.js.map",
+    "787.5c0b2d12.chunk.js.map": "/static/js/787.5c0b2d12.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e7dafe6.css",
+    "static/js/main.febb2477.js"
+  ]
+}

@@ -3,7 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 
-import chatify from "../../Assets/Projects/chatify.png";
+import vasudevaStore from "../../Assets/Projects/vasudevastore.png";
+import onlineClothStore from "../../Assets/Projects/onlineClothShop.png";
+import gifGenerator from "../../Assets/Projects/gifGeneratorBySearch.png";
+import weatherApp from "../../Assets/Projects/weatherApp.png";
+import passwordGenerator from "../../Assets/Projects/passwordGenerator.png";
+import ticTaeToe from "../../Assets/Projects/ticTaeToe.png";
+import tourWithLove from "../../Assets/Projects/tourWithLove.png";
+import courseOption from "../../Assets/Projects/courseOption.png";
 
 function Projects() {
   return (
@@ -19,12 +26,88 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
-              isBlog={false}
-              title="Chatify"
-              description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
-              ghLink="https://github.com/"
-              demoLink="https://chatify-49.web.app/"
+              imgPath={vasudevaStore}
+              // isBlog={false}
+              title="Vasudeva Store"
+              description="Vasudeva Store is a React-based online grocery and general store with user authentication, product search, add-to-cart, and order placement features. It offers a seamless and convenient shopping experience with a clean and responsive interface"
+              ghLink="https://github.com/gauravjha0711/vasudevaStore"
+              demoLink="https://vasudevastore.netlify.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={onlineClothStore}
+              // isBlog={false}
+              title="Online Cloth Shop"
+              description="Vasudeva Store is a React-based online grocery and clothing store that provides a seamless shopping experience with features such as user authentication, product search, cart management, and order placement. The app utilizes Redux for state management to handle cart items, user sessions, and dynamic content, ensuring a smooth and responsive interface."
+              demoLink="https://onlineclothshop.netlify.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={tourWithLove}
+              // isBlog={false}
+              title="tourWithLove"
+              description="Tour with Love is a React-based platform showcasing travel destinations with detailed descriptions and prices Users can explore tours and mark them as 'Not Interested' for personalized recommendations"
+              ghLink="https://github.com/gauravjha0711/tour_with_love"
+              demoLink="https://tourwithlove.netlify.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={gifGenerator}
+              // isBlog={false}
+              title="Gif generator by search"
+              description="The app allows users to generate random GIFs and search for specific ones using an API call, providing a fun and interactive way to discover animated content. The seamless integration of the GIF search feature enhances user experience with quick results and smooth browsing."
+              ghLink="https://github.com/gauravjha0711/gif"
+              demoLink="https://gifgeneratorbysearch.netlify.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={courseOption}
+              // isBlog={false}
+              title="Course sort listing"
+              description="The platform offers a variety of courses that users can sort based on their requirements, making it easy to find relevant content. Additionally, users can like or dislike courses to personalize their learning preferences."
+              ghLink="https://github.com/gauravjha0711/course"
+              demoLink="https://courseoption.netlify.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={weatherApp}
+              // isBlog={false}
+              title="Weather App"
+              description="The app provides real-time weather updates for your current location or any place you search, powered by API calls. Users can easily access detailed weather reports with a smooth and responsive interface."
+              ghLink="https://github.com/gauravjha0711/Weather-App"
+              demoLink="https://gauravjha0711.github.io/Weather-App/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={ticTaeToe}
+              // isBlog={false}
+              title="Tic-Tae-Toe"
+              description="The Tic-Tac-Toe game features a visually appealing gradient color background, enhancing the user experience. After a win, the winner is displayed as X or O, and users can start a new game with an attractive, vibrant interface."
+              ghLink="https://github.com/gauravjha0711/Tic-Tac-Toe"
+              demoLink="https://gauravjha0711.github.io/Tic-Tac-Toe/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={passwordGenerator}
+              // isBlog={false}
+              title="Password Generator"
+              description="The password generator allows users to customize their password by selecting options for numbers, uppercase and lowercase letters, and special symbols. This feature ensures the creation of secure and complex passwords tailored to user preferences."
+              ghLink="https://github.com/gauravjha0711/Password-Generator"
+              demoLink="https://gauravjha0711.github.io/Password-Generator/"
             />
           </Col>
 
