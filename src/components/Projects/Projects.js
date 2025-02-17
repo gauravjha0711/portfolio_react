@@ -40,7 +40,8 @@ function Projects() {
               imgPath={onlineClothStore}
               // isBlog={false}
               title="Online Cloth Shop"
-              description="Vasudeva Store is a React-based online grocery and clothing store that provides a seamless shopping experience with features such as user authentication, product search, cart management, and order placement. The app utilizes Redux for state management to handle cart items, user sessions, and dynamic content, ensuring a smooth and responsive interface."
+              description="Online Clothing Store is a React-based e-commerce platform that offers a smooth shopping experience with features like user authentication, product search, cart management, and secure checkout. Powered by Redux, it efficiently manages user sessions, cart items, and product data for seamless performance. With an intuitive design and responsive interface, it ensures hassle-free navigation and a convenient shopping journey."
+              ghLink="https://github.com/gauravjha0711/onlineClothShop"
               demoLink="https://onlineclothshop.netlify.app/"
             />
           </Col>
