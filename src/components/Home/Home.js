@@ -22,9 +22,10 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> GAURAV KUMAR</strong>
+                <strong className="main-name"> GAURAV KUMAR</strong>,
               </h1>
-              <h3>I'm a passionate software developer,<br/> who specializes in Full Stack Development.</h3>
+              <h3>a Passionate Full Stack Developer (MERN),<br/>dedicated to building impactful software.</h3>
+              <h5>🚀 DevOps Explorer | 🧠 DSA Enthusiast | 🧩 Problem Solver</h5>
 
               <div style={{ padding: 50, textAlign: "left" }}>
                 <Type />
