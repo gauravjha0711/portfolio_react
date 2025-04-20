@@ -16,9 +16,10 @@ function Footer() {
       <Row>
         <Col md="4" className="footer-copywright">
           <h3>Designed and Developed by ❤️Gaurav Kumar</h3>
+          <h3>Copyright © {year} Gk. All rights reserved.</h3>
         </Col>
         <Col md="4" className="footer-copywright">
-          <h3>Copyright © {year} Gk. All rights reserved.</h3>
+          <h3>"Hit them where it hurts the most."<br/>--✍️Gaurav</h3>
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">
