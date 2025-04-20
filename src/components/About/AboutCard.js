@@ -15,17 +15,17 @@ function AboutCard() {
             <br />
             As a Full Stack Software Engineer, I’m passionate about mastering both front-end and back-end technologies. I enjoy building scalable web applications using tools like React.js, Node.js, and the MERN stack.            <br />
             <br />
-            Apart from coding, some other activities that I love to do!
+            🚀Apart from coding, some other activities that I love to do!
           </p>
           <ul>
             <li className="about-activity">
-              <ImPointRight /> Playing Cricket
+              <ImPointRight />🏏 Playing Cricket
             </li>
             <li className="about-activity">
-              <ImPointRight /> Watching Movies.
+              <ImPointRight />🎬 Watching Movies.
             </li>
             <li className="about-activity">
-              <ImPointRight /> Travelling
+              <ImPointRight />✈️ Travelling
             </li>
           </ul>
 

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { BsFillAwardFill } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
 
-function ProjectCards(props) {
+function CertificateCard(props) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
@@ -18,12 +18,13 @@ function ProjectCards(props) {
     : `${props.description.slice(0, maxLength)}${isLong ? "..." : ""}`;
 
   return (
-    <Card className="project-card-view h-100 d-flex flex-column justify-content-between">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
+    <Card className="certificate-card-view custom-glow-card h-100 d-flex flex-column justify-content-between">
+      <Card.Img variant="top" src={props.imgPath} alt="certificate-img" />
       <Card.Body className="d-flex flex-column">
         <div>
-          <Card.Title>{props.title}</Card.Title>
-          <Card.Text style={{ textAlign: "justify" }}>
+          <Card.Title className="text-light">{props.title}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{props.issuer}</Card.Subtitle>
+          <Card.Text className="text-light" style={{ textAlign: "justify" }}>
             {displayText}
             {isLong && (
               <span
@@ -37,20 +38,20 @@ function ProjectCards(props) {
         </div>
 
         <div className="mt-auto">
-          <Button variant="primary" href={props.ghLink} target="_blank">
-            <BsGithub /> &nbsp;
-            {props.isBlog ? "Blog" : "GitHub"}
-          </Button>
+          {props.certLink && (
+            <Button variant="success" href={props.certLink} target="_blank">
+              <BsFillAwardFill /> &nbsp; View Certificate
+            </Button>
+          )}
           {" "}
-          {!props.isBlog && props.demoLink && (
+          {props.demoLink && (
             <Button
-              variant="primary"
+              variant="info"
               href={props.demoLink}
               target="_blank"
               style={{ marginLeft: "10px" }}
             >
-              <CgWebsite /> &nbsp;
-              Demo
+              <CgWebsite /> &nbsp; Visit
             </Button>
           )}
         </div>
@@ -59,4 +60,4 @@ function ProjectCards(props) {
   );
 }
 
-export default ProjectCards;
+export default CertificateCard;

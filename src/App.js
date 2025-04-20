@@ -7,12 +7,15 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import Certificates from "./components/Certificate/Certificates";
+
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate
+  Navigate,
 } from "react-router-dom";
+
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
@@ -41,7 +44,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/"/>} />
+          <Route path="/certificates" element={<Certificates />} /> {/* ✅ Route Added */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <Footer />
       </div>

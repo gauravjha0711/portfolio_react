@@ -6,7 +6,8 @@ import logog from "../Assets/logog.png";
 import logok from "../Assets/logok.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
+
+import { CgGitFork, CgFileDocument } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
   AiFillStar,
@@ -15,8 +16,7 @@ import {
   AiOutlineUser,
   AiOutlineMail,
 } from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
+import { BsPatchCheckFill } from "react-icons/bs"; // Certificate icon
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -88,6 +88,16 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
+                to="/certificates"
+                onClick={() => updateExpanded(false)}
+              >
+                <BsPatchCheckFill style={{ marginBottom: "2px" }} /> Certificates
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
@@ -95,15 +105,6 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            {/* <Nav.Item>
-              <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
-              </Nav.Link>
-            </Nav.Item> */}
             <Nav.Item>
               <Nav.Link
                 as={Link}
