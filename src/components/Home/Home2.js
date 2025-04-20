@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.jpg";
+import myImg2 from "../../Assets/avatar2.jpg";
+import myImg1 from "../../Assets/avatar.jpg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
@@ -9,7 +10,14 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+
 function Home2() {
+  const [selectedImg, setSelectedImg] = useState(myImg2);
+
+  const handleImageClick = () => {
+    setSelectedImg((prev) => (prev === myImg1 ? myImg2 : myImg1));
+  };
+
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -19,9 +27,9 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-            I fell in love with programming and have continuously learning and growing ever since. 🤷‍♂️
-            <br /> <br />
-            I enjoy collaborating on projects, solving real-world problems, and constantly sharpening <br/>my skills to stay ahead in the ever-evolving tech landscape.
+              I fell in love with programming and have continuously learning and growing ever since. 🤷‍♂️
+              <br /> <br />
+              I enjoy collaborating on projects, solving real-world problems, and constantly sharpening <br/>my skills to stay ahead in the ever-evolving tech landscape.
               <br />
               <br />I’m fluent in languages like
               <i>
@@ -33,19 +41,13 @@ function Home2() {
               <i>
                 <b className="purple">innovative Web Technologies and Products, </b><br/>
                 and as well as exploring fields related to{" "}
-                <b className="purple">
-                  Blockchain.
-                </b>
+                <b className="purple">Blockchain.</b>
               </i>
-              
               <br />
               <br />
               Whenever possible, I channel my passion into developing products using <b className="purple">Node.js</b> and<br/>
               <i>
-                <b className="purple">
-                  {" "}
-                  Modern Javascript Library and Frameworks
-                </b>
+                <b className="purple"> Modern Javascript Library and Frameworks </b>
               </i>
               &nbsp; like
               <i>
@@ -53,17 +55,23 @@ function Home2() {
               </i>
             </p>
           </Col>
-          <Col md={4} className="myAvtar">
-          <Tilt>
-            <img 
-              src={myImg} 
-              className="img-fluid" 
-              alt="avatar" 
-              style={{ borderRadius: "15%" }} 
-            />
-        </Tilt>
+
+          <Col md={4} className="myAvtar" style={{ textAlign: "center" }}>
+            <div style={{ color: "#c770f0", fontWeight: "bold", marginBottom: "10px", fontSize: "18px" }}>
+              📸 Click on pic to swap
+            </div>
+            <Tilt>
+              <img 
+                src={selectedImg} 
+                className="img-fluid" 
+                alt="avatar" 
+                style={{ borderRadius: "15%", cursor: "pointer" }} 
+                onClick={handleImageClick}
+              />
+            </Tilt>
           </Col>
         </Row>
+
         <Row>
           <Col md={12} className="home-about-social">
             <h1>FIND ME ON</h1>
@@ -118,4 +126,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
