@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import Particle from "../Particle"; // Make sure the path to Particle is correct
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+} from "react-icons/fa";
+import Particle from "../Particle";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
     message: "",
   });
 
@@ -17,17 +23,16 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     emailjs
       .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
       .then(
         () => alert("Message sent successfully!"),
         () => alert("Failed to send message. Please try again.")
       );
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", message: "" });
   };
 
+  // Styles
   const containerStyle = {
     minHeight: "100vh",
     backgroundColor: "#0e1628",
@@ -71,13 +76,24 @@ const ContactUs = () => {
     zIndex: 1,
   };
 
-  const cardStyle = {
+  const baseCardStyle = {
     flex: "1 1 400px",
-    backgroundColor: "rgba(255, 255, 255, 0.05)",
     padding: "24px",
     borderRadius: "16px",
     backdropFilter: "blur(8px)",
     boxShadow: "0 4px 30px rgba(0,0,0,0.2)",
+  };
+
+  const infoCardStyle = {
+    ...baseCardStyle,
+    backgroundColor: "rgba(255, 255, 255, 0)",
+    border: "1px solid rgba(255, 255, 255, 0.08)",
+  };
+
+  const formCardStyle = {
+    ...baseCardStyle,
+    backgroundColor: "rgba(255, 255, 255, 0.02)",
+    border: "1px solid rgba(255, 255, 255, 0.08)",
   };
 
   const itemRow = {
@@ -108,8 +124,16 @@ const ContactUs = () => {
     borderRadius: "8px",
     padding: "12px",
     width: "100%",
-    marginBottom: "16px",
+    marginBottom: "20px",
     outline: "none",
+    fontSize: "16px",
+  };
+
+  const labelAboveInput = {
+    fontWeight: "500",
+    marginBottom: "6px",
+    display: "block",
+    color: "#93c5fd",
   };
 
   const buttonStyle = {
@@ -120,19 +144,30 @@ const ContactUs = () => {
     padding: "12px",
     borderRadius: "8px",
     cursor: "pointer",
+    marginTop: "8px",
   };
 
   const socialStyle = {
     display: "flex",
     gap: "16px",
-    color: "#cbd5e1",
     marginTop: "12px",
   };
 
-  const inputRowStyle = {
-    display: "flex",
-    gap: "16px",
-    flexWrap: "wrap",
+  const iconHoverStyle = {
+    fontSize: "24px",
+    color: "#cbd5e1",
+    transition: "color 0.2s ease-in-out, transform 0.2s ease-in-out",
+    cursor: "pointer",
+  };
+
+  const handleMouseEnter = (e) => {
+    e.target.style.color = "#60a5fa";
+    e.target.style.transform = "scale(1.1)";
+  };
+
+  const handleMouseLeave = (e) => {
+    e.target.style.color = "#cbd5e1";
+    e.target.style.transform = "scale(1)";
   };
 
   return (
@@ -140,15 +175,15 @@ const ContactUs = () => {
       <Particle />
 
       <h2 style={headingStyle}>
-        Get In <span style={highlightStyle}>Touch</span>
+        Let's Get In <span style={highlightStyle}>Touch</span>
       </h2>
       <p style={paragraphStyle}>
-        Have a project in mind or want to discuss a potential collaboration? Feel free to reach out.
+        Have any questions or want to discuss a potential collaboration? Feel free to reach out.
       </p>
 
       <div style={cardContainer}>
-        {/* Contact Info Card */}
-        <div style={cardStyle}>
+        {/* Info Card */}
+        <div style={infoCardStyle}>
           <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
             Contact Information
           </h3>
@@ -173,59 +208,87 @@ const ContactUs = () => {
             <FaMapMarkerAlt style={iconStyle} />
             <div>
               <div style={labelStyle}>Location</div>
-              <div style={contactValueStyle}>Patna, Bihar, India</div>
+              <div style={contactValueStyle}>
+                <a
+                  href="https://www.google.com/maps?q=Patna,+Bihar,+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#cbd5e1", textDecoration: "underline" }}
+                >
+                  Patna, Bihar, India
+                </a>
+              </div>
             </div>
           </div>
 
           <div style={labelStyle}>Connect With Me</div>
           <div style={socialStyle}>
-            <a href="https://github.com/gauravjha0711"><FaGithub style={{ fontSize: "20px", color: "#cbd5e1" }} /></a>
-            <a href="https://www.linkedin.com/in/gaurav-kumar-729503265/"><FaLinkedin style={{ fontSize: "20px", color: "#cbd5e1" }} /></a>
-            <a href="https://www.instagram.com/gauravjhagk/"><FaInstagram style={{ fontSize: "20px", color: "#cbd5e1" }} /></a>
+            <a href="https://github.com/gauravjha0711" target="_blank" rel="noopener noreferrer">
+              <FaGithub
+                style={iconHoverStyle}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
+            </a>
+            <a href="https://www.linkedin.com/in/gaurav-kumar-729503265/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin
+                style={iconHoverStyle}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
+            </a>
+            <a href="https://www.instagram.com/gauravjhagk/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram
+                style={iconHoverStyle}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
+            </a>
           </div>
         </div>
 
-        {/* Contact Form Card */}
-        <div style={cardStyle}>
+        {/* Form Card */}
+        <div style={formCardStyle}>
           <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
             Send me a message
           </h3>
           <form onSubmit={handleSubmit}>
-            <div style={inputRowStyle}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                style={{ ...inputStyle, flex: "1" }}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                style={{ ...inputStyle, flex: "1" }}
-              />
-            </div>
-
+            <label style={labelAboveInput} htmlFor="name">
+              Your Name
+            </label>
             <input
               type="text"
-              name="subject"
-              placeholder="Project Inquiry"
-              value={formData.subject}
+              name="name"
+              id="name"
+              placeholder="Your full name"
+              value={formData.name}
               onChange={handleChange}
               required
               style={inputStyle}
             />
 
+            <label style={labelAboveInput} htmlFor="email">
+              Your Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your email address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              style={inputStyle}
+            />
+
+            <label style={labelAboveInput} htmlFor="message">
+              Your Message
+            </label>
             <textarea
               name="message"
-              placeholder="I'd like to discuss a potential project..."
-              rows="5"
+              id="message"
+              placeholder="Type your message here..."
+              rows="3"
               value={formData.message}
               onChange={handleChange}
               required
