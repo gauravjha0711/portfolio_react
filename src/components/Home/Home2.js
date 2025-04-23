@@ -99,7 +99,7 @@ function Home2() {
                   <SiLeetcode size={30} color="#FFA116" />
                 </a>
               </li>
-              <li className="social-icons">
+              {/* <li className="social-icons">
                 <a
                   href="https://www.linkedin.com/in/gaurav-kumar-729503265/"
                   target="_blank"
@@ -108,7 +108,7 @@ function Home2() {
                 >
                   <FaLinkedinIn />
                 </a>
-              </li>
+              </li> */}
               {/* <li className="social-icons">
                 <a
                   href="https://www.instagram.com/gauravjhagk"
