@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8213d03e.css",
-    "main.js": "/static/js/main.f881cc0a.js",
+    "main.js": "/static/js/main.3a706bb3.js",
     "static/js/787.5c0b2d12.chunk.js": "/static/js/787.5c0b2d12.chunk.js",
     "static/media/CloudComputing.png": "/static/media/CloudComputing.8febc9bb4753c7f3cdbf.png",
     "static/media/vasudevastore.png": "/static/media/vasudevastore.9dbcfde673223ee2b444.png",
@@ -31,11 +31,11 @@
     "static/media/pre.svg": "/static/media/pre.4410c5baaa673cc131da.svg",
     "index.html": "/index.html",
     "main.8213d03e.css.map": "/static/css/main.8213d03e.css.map",
-    "main.f881cc0a.js.map": "/static/js/main.f881cc0a.js.map",
+    "main.3a706bb3.js.map": "/static/js/main.3a706bb3.js.map",
     "787.5c0b2d12.chunk.js.map": "/static/js/787.5c0b2d12.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8213d03e.css",
-    "static/js/main.f881cc0a.js"
+    "static/js/main.3a706bb3.js"
   ]
 }
