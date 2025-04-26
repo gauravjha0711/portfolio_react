@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { FaUniversity, FaRegCalendarAlt } from "react-icons/fa"; // Add icons
+import { FaUniversity } from "react-icons/fa"; // Add icons
 
 // Local animation variant
 const fadeInUp = {

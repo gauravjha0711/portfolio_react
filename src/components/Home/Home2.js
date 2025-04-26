@@ -109,7 +109,7 @@ function Home2() {
                   <FaLinkedinIn />
                 </a>
               </li> */}
-              {/* <li className="social-icons">
+              <li className="social-icons">
                 <a
                   href="https://www.instagram.com/gauravjhagk"
                   target="_blank"
@@ -118,7 +118,7 @@ function Home2() {
                 >
                   <AiFillInstagram />
                 </a>
-              </li> */}
+              </li>
             </ul>
           </Col>
         </Row>
