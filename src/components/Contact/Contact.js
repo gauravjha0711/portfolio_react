@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import {
-  FaEnvelope,
-  FaPhoneAlt,
-  FaMapMarkerAlt,
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-} from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Particle from "../Particle";
+import { motion } from "framer-motion";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -30,6 +24,12 @@ const ContactUs = () => {
         () => alert("Failed to send message. Please try again.")
       );
     setFormData({ name: "", email: "", message: "" });
+  };
+
+  // Define animation variants for fade-in effect
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
   };
 
   // Styles
@@ -127,6 +127,7 @@ const ContactUs = () => {
     marginBottom: "20px",
     outline: "none",
     fontSize: "16px",
+    transition: "all 0.3s ease-in-out",
   };
 
   const labelAboveInput = {
@@ -145,6 +146,7 @@ const ContactUs = () => {
     borderRadius: "8px",
     cursor: "pointer",
     marginTop: "8px",
+    transition: "all 0.3s ease-in-out",
   };
 
   const socialStyle = {
@@ -158,6 +160,12 @@ const ContactUs = () => {
     color: "#cbd5e1",
     transition: "color 0.2s ease-in-out, transform 0.2s ease-in-out",
     cursor: "pointer",
+  };
+
+  const iconScaleHoverStyle = {
+    fontSize: "28px",
+    color: "#60a5fa",
+    transform: "scale(1.2)",
   };
 
   const handleMouseEnter = (e) => {
@@ -181,9 +189,14 @@ const ContactUs = () => {
         Have any questions or want to discuss a potential collaboration? Feel free to reach out.
       </p>
 
-      <div style={cardContainer}>
+      <motion.div
+        style={cardContainer}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInVariants}
+      >
         {/* Info Card */}
-        <div style={infoCardStyle}>
+        <motion.div style={infoCardStyle} variants={fadeInVariants}>
           <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
             Contact Information
           </h3>
@@ -245,10 +258,10 @@ const ContactUs = () => {
               />
             </a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Form Card */}
-        <div style={formCardStyle}>
+        <motion.div style={formCardStyle} variants={fadeInVariants}>
           <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
             Send me a message
           </h3>
@@ -299,8 +312,8 @@ const ContactUs = () => {
               🚀 Send Message
             </button>
           </form>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
