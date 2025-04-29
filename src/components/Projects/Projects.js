@@ -39,56 +39,64 @@ function Projects() {
               {
                 imgPath: vasudevaStore,
                 title: "Vasudeva Store",
-                description: "Vasudeva Store is a React-based online grocery and general store with user authentication, product search, add-to-cart, and order placement features.",
+                description:
+                  "Vasudeva Store is a feature-rich React-based online grocery and general store platform. It supports user registration, login authentication, personalized dashboards, dynamic product search, cart functionality, and order placement. Admins can manage inventory, while users enjoy a seamless and responsive shopping experience. Technologies used include React, Firebase for auth, and local storage for state persistence.",
                 ghLink: "https://github.com/gauravjha0711/vasudevaStore",
                 demoLink: "https://vasudevastore.netlify.app/",
               },
               {
                 imgPath: onlineClothStore,
                 title: "Online Cloth Shop",
-                description: "Online Clothing Store is a React-based e-commerce platform with user authentication, product search, cart management, and secure checkout.",
+                description:
+                  "A React-powered online clothing store offering users a smooth e-commerce experience with full authentication, search capabilities, filtering by category, cart management, and secure checkout. It features responsive design, dynamic UI rendering, and efficient state management using hooks. Firebase is used for backend services including authentication and real-time database.",
                 ghLink: "https://github.com/gauravjha0711/onlineClothShop",
                 demoLink: "https://onlineclothshop.netlify.app/",
               },
               {
                 imgPath: tourWithLove,
                 title: "Tour With Love",
-                description: "Tour with Love is a React-based platform showcasing travel destinations, offering personalized recommendations based on user preferences.",
+                description:
+                  "Tour With Love is a React-based travel platform that curates beautiful travel destinations with rich imagery, descriptions, and user-personalized recommendations. It offers a smooth UI, location-specific filters, and user-interactive design. Ideal for travel bloggers and explorers looking for inspiration or planning a trip.",
                 ghLink: "https://github.com/gauravjha0711/tour_with_love",
                 demoLink: "https://tourwithlove.netlify.app/",
               },
               {
                 imgPath: gifGenerator,
-                title: "Gif Generator by Search",
-                description: "Generate random GIFs or search for specific ones using an API call, offering a fun and interactive way to explore animated content.",
+                title: "GIF Generator by Search",
+                description:
+                  "An interactive app that lets users generate random GIFs or search for specific ones using the Giphy API. Built with React, it showcases efficient API integration, loading states, and a fun user interface that responds to both user input and random generation. Ideal for users who enjoy exploring animated content.",
                 ghLink: "https://github.com/gauravjha0711/gif",
                 demoLink: "https://gifgeneratorbysearch.netlify.app/",
               },
               {
                 imgPath: courseOption,
                 title: "Course Sort Listing",
-                description: "Sort and filter through various courses, with like/dislike features for personalizing your learning preferences.",
+                description:
+                  "Course Sort Listing is a dynamic web app that allows users to explore, filter, and sort a variety of courses. It includes features like liking/disliking courses to personalize recommendations. Built using React, this project demonstrates effective component structuring, props handling, and conditional rendering for personalized UI updates.",
                 ghLink: "https://github.com/gauravjha0711/course",
                 demoLink: "https://courseoption.netlify.app/",
               },
               {
                 imgPath: weatherApp,
                 title: "Weather App",
-                description: "Get real-time weather updates with a responsive interface and live API calls for location-based and searched weather data.",
+                description:
+                  "A responsive weather forecasting application that retrieves real-time data based on user’s location or custom search queries. Built with HTML, CSS, JS, and OpenWeatherMap API, it provides temperature, humidity, and weather icons. It showcases API handling, asynchronous JavaScript, and clean UI design.",
                 ghLink: "https://github.com/gauravjha0711/Weather-App",
                 demoLink: "https://gauravjha0711.github.io/Weather-App/",
               },
               {
                 imgPath: ticTaeToe,
-                title: "Tic-Tae-Toe",
-                description: "A classic Tic-Tac-Toe game with a gradient background and a new game reset functionality.",
+                title: "Tic-Tac-Toe",
+                description:
+                  "A colorful and interactive Tic-Tac-Toe game featuring gradient styling and a responsive layout. It allows two-player interaction with win/draw detection, game history reset, and user-friendly design. Built with HTML, CSS, and JavaScript, it's a great demonstration of DOM manipulation and logic building.",
                 ghLink: "https://github.com/gauravjha0711/Tic-Tac-Toe",
                 demoLink: "https://gauravjha0711.github.io/Tic-Tac-Toe/",
               },
               {
                 imgPath: passwordGenerator,
                 title: "Password Generator",
-                description: "Generate strong, secure, and customizable passwords with numbers, symbols, and letters.",
+                description:
+                  "Generate secure and customizable passwords based on user preferences including length, inclusion of symbols, numbers, and uppercase/lowercase characters. Built using vanilla JavaScript, HTML, and CSS, the app ensures users can create strong credentials quickly. Ideal for improving digital safety and password hygiene.",
                 ghLink: "https://github.com/gauravjha0711/Password-Generator",
                 demoLink: "https://gauravjha0711.github.io/Password-Generator/",
               },
