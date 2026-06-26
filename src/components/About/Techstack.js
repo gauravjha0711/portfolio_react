@@ -1,8 +1,8 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { FaBootstrap } from "react-icons/fa";
+
 import { CgCPlusPlus } from "react-icons/cg";
-import { SiTailwindcss } from "react-icons/si";
+
 import {
   DiJavascript1,
   DiReact,
@@ -11,60 +11,117 @@ import {
   DiPython,
   DiGit,
   DiJava,
-  DiPhp, 
+  DiPhp,
   DiAngularSimple,
 } from "react-icons/di";
+
 import {
-  SiNextdotjs,
-  SiMysql
+  FaBootstrap,
+  FaDocker,
+} from "react-icons/fa";
+
+import {
+  SiTailwindcss,
+  SiMysql,
+  SiDotnet,
+  SiDjango,
+  SiRedis,
+  SiRabbitmq,
+  SiMicrosoftsqlserver,
+  SiCsharp,
+  SiRazorpay,
 } from "react-icons/si";
-import { TbBrandGolang } from "react-icons/tb";
 
 function Techstack() {
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
+
+      {/* Languages */}
       <Col xs={4} md={2} className="tech-icons">
-        <CgCPlusPlus />
+        <CgCPlusPlus title="C++" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 />
+        <SiCsharp title="C#" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs />
+        <DiJavascript1 title="JavaScript" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiReact />
+        <DiJava title="Java" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiMongodb />
+        <DiPython title="Python" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs />
+        <DiPhp title="PHP" />
       </Col>
+
+      {/* Frontend */}
       <Col xs={4} md={2} className="tech-icons">
-        <DiGit />
+        <DiReact title="React" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <SiMysql />
+        <FaBootstrap title="Bootstrap" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiPython />
+        <SiTailwindcss title="Tailwind CSS" />
       </Col>
+
+      {/* Backend */}
       <Col xs={4} md={2} className="tech-icons">
-        <DiJava />
+        <DiNodejs title="Node.js" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiPhp />
+        <SiDotnet title=".NET / ASP.NET Core" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <FaBootstrap />
+        <SiDjango title="Django" />
       </Col>
+
+      {/* Database */}
       <Col xs={4} md={2} className="tech-icons">
-        <SiTailwindcss />
+        <DiMongodb title="MongoDB" />
       </Col>
+
       <Col xs={4} md={2} className="tech-icons">
-        <DiAngularSimple />
+        <SiMysql title="MySQL" />
       </Col>
+
+      <Col xs={4} md={2} className="tech-icons">
+        <SiMicrosoftsqlserver title="SQL Server" />
+      </Col>
+
+      {/* Microservices & DevOps */}
+      <Col xs={4} md={2} className="tech-icons">
+        <SiRedis title="Redis" />
+      </Col>
+
+      <Col xs={4} md={2} className="tech-icons">
+        <SiRabbitmq title="RabbitMQ" />
+      </Col>
+
+      <Col xs={4} md={2} className="tech-icons">
+        <FaDocker title="Docker" />
+      </Col>
+
+      <Col xs={4} md={2} className="tech-icons">
+        <DiGit title="Git" />
+      </Col>
+
+      {/* Payment */}
+      <Col xs={4} md={2} className="tech-icons">
+        <SiRazorpay title="Razorpay" />
+      </Col>
+
     </Row>
   );
 }
