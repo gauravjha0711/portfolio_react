@@ -24,7 +24,7 @@ function Projects() {
       imgPath: capshop,
 
       title:
-        "CapShop Microservices E-Commerce",
+        "CapShop E-Commerce",
 
       description:
         "CapShop is an enterprise-grade microservices-based e-commerce platform developed using ASP.NET Core, React, SQL Server, RabbitMQ, Redis, Ocelot API Gateway, Razorpay and Saga Pattern. The application follows modern distributed architecture principles including Event-Driven Communication, JWT Authentication, Redis Caching, API Gateway Routing, and Microservices Architecture. Customers can browse products, manage carts, place orders and make secure payments, while administrators can manage products, inventory, orders and dashboard analytics.",
