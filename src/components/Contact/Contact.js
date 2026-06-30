@@ -1,10 +1,24 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 import Particle from "../Particle";
 import { motion } from "framer-motion";
 
-const ContactUs = () => {
+import {
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaPaperPlane,
+  FaDownload,
+} from "react-icons/fa";
+
+function ContactUs() {
+  const [loading, setLoading] = useState(false);
+
+  const [status, setStatus] = useState("");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,310 +26,321 @@ const ContactUs = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
-      .then(
-        () => alert("Message sent successfully!"),
-        () => alert("Failed to send message. Please try again.")
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE,
+        process.env.REACT_APP_EMAILJS_TEMPLATE,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        process.env.REACT_APP_EMAILJS_PUBLIC
       );
-    setFormData({ name: "", email: "", message: "" });
-  };
 
-  // Define animation variants for fade-in effect
-  const fadeInVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 1 } },
-  };
+      setStatus("success");
 
-  // Styles
-  const containerStyle = {
-    minHeight: "100vh",
-    backgroundColor: "#0e1628",
-    color: "white",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "7rem 1rem 2rem 1rem",
-    boxSizing: "border-box",
-    position: "relative",
-    overflow: "hidden",
-  };
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (err) {
+      setStatus("error");
+    }
 
-  const headingStyle = {
-    fontSize: "36px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-    textAlign: "center",
-    zIndex: 1,
-  };
-
-  const highlightStyle = {
-    color: "#60a5fa",
-  };
-
-  const paragraphStyle = {
-    color: "#cbd5e1",
-    textAlign: "center",
-    marginBottom: "40px",
-    maxWidth: "700px",
-    zIndex: 1,
-  };
-
-  const cardContainer = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "30px",
-    width: "100%",
-    maxWidth: "1200px",
-    justifyContent: "center",
-    zIndex: 1,
-  };
-
-  const baseCardStyle = {
-    flex: "1 1 400px",
-    padding: "24px",
-    borderRadius: "16px",
-    backdropFilter: "blur(8px)",
-    boxShadow: "0 4px 30px rgba(0,0,0,0.2)",
-  };
-
-  const infoCardStyle = {
-    ...baseCardStyle,
-    backgroundColor: "rgba(255, 255, 255, 0)",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-  };
-
-  const formCardStyle = {
-    ...baseCardStyle,
-    backgroundColor: "rgba(255, 255, 255, 0.02)",
-    border: "1px solid rgba(255, 255, 255, 0.08)",
-  };
-
-  const itemRow = {
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-    marginBottom: "20px",
-  };
-
-  const iconStyle = {
-    color: "#60a5fa",
-    fontSize: "24px",
-  };
-
-  const labelStyle = {
-    fontWeight: "600",
-    marginBottom: "4px",
-  };
-
-  const contactValueStyle = {
-    color: "#cbd5e1",
-  };
-
-  const inputStyle = {
-    backgroundColor: "rgba(255,255,255,0.1)",
-    color: "#ffffff",
-    border: "none",
-    borderRadius: "8px",
-    padding: "12px",
-    width: "100%",
-    marginBottom: "20px",
-    outline: "none",
-    fontSize: "16px",
-    transition: "all 0.3s ease-in-out",
-  };
-
-  const labelAboveInput = {
-    fontWeight: "500",
-    marginBottom: "6px",
-    display: "block",
-    color: "#93c5fd",
-  };
-
-  const buttonStyle = {
-    backgroundColor: "#2563eb",
-    color: "#ffffff",
-    fontWeight: "600",
-    border: "none",
-    padding: "12px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    marginTop: "8px",
-    transition: "all 0.3s ease-in-out",
-  };
-
-  const socialStyle = {
-    display: "flex",
-    gap: "16px",
-    marginTop: "12px",
-  };
-
-  const iconHoverStyle = {
-    fontSize: "24px",
-    color: "#cbd5e1",
-    transition: "color 0.2s ease-in-out, transform 0.2s ease-in-out",
-    cursor: "pointer",
-  };
-
-  const iconScaleHoverStyle = {
-    fontSize: "28px",
-    color: "#60a5fa",
-    transform: "scale(1.2)",
-  };
-
-  const handleMouseEnter = (e) => {
-    e.target.style.color = "#60a5fa";
-    e.target.style.transform = "scale(1.1)";
-  };
-
-  const handleMouseLeave = (e) => {
-    e.target.style.color = "#cbd5e1";
-    e.target.style.transform = "scale(1)";
+    setLoading(false);
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="contact-section">
       <Particle />
 
-      <h2 style={headingStyle}>
-        Let's Get In <span style={highlightStyle}>Touch</span>
-      </h2>
-      <p style={paragraphStyle}>
-        Have any questions or want to discuss a potential collaboration? Feel free to reach out.
-      </p>
-
       <motion.div
-        style={cardContainer}
-        initial="hidden"
-        animate="visible"
-        variants={fadeInVariants}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: .8 }}
       >
-        {/* Info Card */}
-        <motion.div style={infoCardStyle} variants={fadeInVariants}>
-          <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
-            Contact Information
-          </h3>
+        <h1 className="contact-heading">
+          Get In <span>Touch</span>
+        </h1>
 
-          <div style={itemRow}>
-            <FaEnvelope style={iconStyle} />
+        <p className="contact-subtitle">
+          Open to software engineering roles,
+          collaborations and exciting projects.
+        </p>
+      </motion.div>
+
+      <div className="contact-container">
+
+        {/* LEFT */}
+
+        <motion.div
+          className="contact-card"
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <h3>Contact Information</h3>
+
+          <div className="info-item">
+            <FaEnvelope className="icon"/>
             <div>
-              <div style={labelStyle}>Email</div>
-              <div style={contactValueStyle}>gauravjha0711@gmail.com</div>
+              <h6>Email</h6>
+              <p>gauravjha0711@gmail.com</p>
             </div>
           </div>
 
-          <div style={itemRow}>
-            <FaPhoneAlt style={iconStyle} />
+          <div className="info-item">
+            <FaPhoneAlt className="icon"/>
             <div>
-              <div style={labelStyle}>Phone</div>
-              <div style={contactValueStyle}>+91 9162691966</div>
+              <h6>Phone</h6>
+              <p>+91 9162691966</p>
             </div>
           </div>
 
-          <div style={itemRow}>
-            <FaMapMarkerAlt style={iconStyle} />
+          <div className="info-item">
+            <FaMapMarkerAlt className="icon"/>
             <div>
-              <div style={labelStyle}>Location</div>
-              <div style={contactValueStyle}>
-                <a
-                  href="https://www.google.com/maps?q=Patna,+Bihar,+India"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#cbd5e1", textDecoration: "underline" }}
-                >
-                  Patna, Bihar, India
-                </a>
-              </div>
+              <h6>Location</h6>
+              <p>Patna, Bihar, India</p>
             </div>
           </div>
 
-          <div style={labelStyle}>Connect With Me</div>
-          <div style={socialStyle}>
-            <a href="https://github.com/gauravjha0711" target="_blank" rel="noopener noreferrer">
-              <FaGithub
-                style={iconHoverStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
+          <div className="socials">
+
+            <a
+              href="https://github.com/gauravjha0711"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaGithub/>
             </a>
-            <a href="https://www.linkedin.com/in/gaurav-kumar-729503265/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin
-                style={iconHoverStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
+
+            <a
+              href="https://www.linkedin.com/in/gaurav-kumar-729503265"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin/>
             </a>
-            <a href="https://www.instagram.com/gauravjhagk/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram
-                style={iconHoverStyle}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
+
+            <a
+              href="https://www.instagram.com/gauravjhagk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram/>
             </a>
+
           </div>
+
+          <a
+            href="mailto:gauravjha0711@gmail.com"
+            className="mail-btn"
+          >
+            Send Direct Email
+          </a>
+
         </motion.div>
 
-        {/* Form Card */}
-        <motion.div style={formCardStyle} variants={fadeInVariants}>
-          <h3 style={{ fontSize: "24px", fontWeight: "600", marginBottom: "24px" }}>
-            Send me a message
-          </h3>
+        {/* RIGHT */}
+
+        <motion.div
+          className="contact-card"
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+        >
+          <h3>Send Message</h3>
+
           <form onSubmit={handleSubmit}>
-            <label style={labelAboveInput} htmlFor="name">
-              Your Name
-            </label>
+
             <input
               type="text"
               name="name"
-              id="name"
-              placeholder="Your full name"
+              placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
               required
-              style={inputStyle}
             />
 
-            <label style={labelAboveInput} htmlFor="email">
-              Your Email
-            </label>
             <input
               type="email"
               name="email"
-              id="email"
-              placeholder="Your email address"
+              placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
               required
-              style={inputStyle}
             />
 
-            <label style={labelAboveInput} htmlFor="message">
-              Your Message
-            </label>
             <textarea
+              rows="5"
               name="message"
-              id="message"
-              placeholder="Type your message here..."
-              rows="3"
+              placeholder="Write your message..."
               value={formData.message}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, resize: "none" }}
-            ></textarea>
+            />
 
-            <button type="submit" style={buttonStyle}>
-              🚀 Send Message
+            <button disabled={loading}>
+              <FaPaperPlane />
+              &nbsp;
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="success">
+                Message sent successfully.
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="error">
+                Failed to send message.
+              </p>
+            )}
+
           </form>
         </motion.div>
-      </motion.div>
+      </div>
+
+      <style>{`
+
+      .contact-section{
+        min-height:100vh;
+        padding:120px 20px;
+        color:white;
+      }
+
+      .contact-heading{
+        text-align:center;
+        font-size:3rem;
+        font-weight:700;
+      }
+
+      .contact-heading span{
+        color:#c770f0;
+      }
+
+      .contact-subtitle{
+        text-align:center;
+        color:#bbb;
+        margin-top:10px;
+        margin-bottom:60px;
+      }
+
+      .contact-container{
+        max-width:1200px;
+        margin:auto;
+        display:flex;
+        gap:40px;
+        flex-wrap:wrap;
+      }
+
+      .contact-card{
+        flex:1;
+        min-width:350px;
+        background:rgba(255,255,255,.04);
+        backdrop-filter:blur(15px);
+        border:1px solid rgba(199,112,240,.25);
+        border-radius:25px;
+        padding:40px;
+        transition:.3s;
+      }
+
+      .contact-card:hover{
+        transform:translateY(-8px);
+        box-shadow:0 15px 35px rgba(199,112,240,.25);
+      }
+
+      .info-item{
+        display:flex;
+        gap:20px;
+        margin:30px 0;
+      }
+
+      .icon{
+        color:#c770f0;
+        font-size:25px;
+      }
+
+      .socials{
+        display:flex;
+        gap:20px;
+        margin-top:30px;
+      }
+
+      .socials a{
+        color:white;
+        font-size:25px;
+        transition:.3s;
+      }
+
+      .socials a:hover{
+        color:#c770f0;
+        transform:translateY(-3px);
+      }
+
+      input,textarea{
+        width:100%;
+        padding:15px;
+        margin-bottom:20px;
+        border:none;
+        border-radius:10px;
+        background:rgba(255,255,255,.08);
+        color:white;
+      }
+
+      button,.mail-btn{
+        background:#c770f0;
+        color:white;
+        border:none;
+        padding:14px 30px;
+        border-radius:10px;
+        cursor:pointer;
+        text-decoration:none;
+        display:inline-block;
+        transition:.3s;
+      }
+
+      button:hover,.mail-btn:hover{
+        transform:translateY(-2px);
+      }
+
+      .success{
+        color:#00ff95;
+        margin-top:15px;
+      }
+
+      .error{
+        color:#ff4d4d;
+        margin-top:15px;
+      }
+
+      @media(max-width:768px){
+        .contact-heading{
+          font-size:2.3rem;
+        }
+
+        .contact-card{
+          min-width:100%;
+        }
+      }
+
+      `}</style>
     </div>
   );
-};
+}
 
 export default ContactUs;
